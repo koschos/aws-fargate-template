@@ -1,11 +1,11 @@
 {
   "family": "aws-fargate-template-family",
   "networkMode": "awsvpc",
-  "executionRoleArn": "aws_fargate_execution_role_arn",
+  "executionRoleArn": "{AWS_FARGATE_EXECUTION_ROLE_ARN}",
   "containerDefinitions": [
     {
       "name": "aws-fargate-template",
-      "image": "aws_fargate_image",
+      "image": "{AWS_FARGATE_IMAGE}",
       "portMappings": [
         {
           "containerPort": 80,
@@ -21,7 +21,7 @@
         "secretOptions": null,
         "options": {
           "awslogs-group": "tutorial",
-          "awslogs-region": "aws_region",
+          "awslogs-region": "{AWS_REGION}",
           "awslogs-stream-prefix": "web"
         }
       }
