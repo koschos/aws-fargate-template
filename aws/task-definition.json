@@ -15,7 +15,16 @@
       ],
       "essential": true,
       "entryPoint": [],
-      "command": []
+      "command": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "tutorial",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "web"
+        }
+      }
     }
   ],
   "requiresCompatibilities": [
