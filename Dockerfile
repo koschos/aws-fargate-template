@@ -6,7 +6,7 @@ ARG version=dev
 ENV GO111MODULE=on
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags "-X main.version=$version" -o app ./main.go
 
-FROM alpine:3.11
+FROM public.ecr.aws/amazonlinux/amazonlinux:2
 USER nobody
 WORKDIR /app
 COPY --from=builder /app .
