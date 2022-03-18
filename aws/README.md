@@ -11,6 +11,8 @@ aws iam create-role --role-name ecsTaskExecutionRole --assume-role-policy-docume
 aws iam attach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
 ```
 
+[Create fargate cluster tutorial](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-fargate.html)
+
 Register task definition
 ```bash
 aws ecs register-task-definition --region eu-west-1 --cli-input-json file://$HOME/go/src/github.com/koschos/aws-fargate-template/aws/task-definition.json
