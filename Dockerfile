@@ -10,7 +10,6 @@ FROM alpine:3.11
 
 WORKDIR /app
 COPY --from=builder /app .
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 EXPOSE 80
 
