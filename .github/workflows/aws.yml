@@ -54,9 +54,9 @@ jobs:
 
     - name: Replace placeholders in task definition
       run: |
-        sed -i 's/{AWS_FARGATE_EXECUTION_ROLE_ARN}/${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}/g' ${{ env.ECS_TASK_DEFINITION }}
-        sed -i 's/{AWS_FARGATE_IMAGE}/${{ secrets.AWS_FARGATE_IMAGE }}/g' ${{ env.ECS_TASK_DEFINITION }}
-        sed -i 's/{AWS_REGION}/${{ secrets.AWS_REGION }}/g' ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/{AWS_FARGATE_EXECUTION_ROLE_ARN}/${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/{AWS_FARGATE_IMAGE}/${{ secrets.AWS_FARGATE_IMAGE }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/{AWS_REGION}/${{ secrets.AWS_REGION }}/g" ${{ env.ECS_TASK_DEFINITION }}
         cat ${{ env.ECS_TASK_DEFINITION }}
 
     - name: Replace aws region
