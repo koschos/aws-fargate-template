@@ -53,10 +53,16 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Replace placeholders in task definition
+    - uses: microsoft/variable-substitution@v1
+      with:
+        files: ${{ env.ECS_TASK_DEFINITION }}
+      env:
+        aws_fargate_execution_role_arn: ${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}
+        aws_fargate_image: ${{ secrets.AWS_FARGATE_IMAGE }}
+        aws_region: ${{ secrets.AWS_REGION }}
+
+    - name: Show task definition
       run: |
-        sed -i "s/{AWS_FARGATE_EXECUTION_ROLE_ARN}/${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}/g" ${{ env.ECS_TASK_DEFINITION }}
-        sed -i "s/{AWS_FARGATE_IMAGE}/${{ secrets.AWS_FARGATE_IMAGE }}/g" ${{ env.ECS_TASK_DEFINITION }}
-        sed -i "s/{AWS_REGION}/${{ secrets.AWS_REGION }}/g" ${{ env.ECS_TASK_DEFINITION }}
         cat ${{ env.ECS_TASK_DEFINITION }}
 
     - name: Replace aws region
