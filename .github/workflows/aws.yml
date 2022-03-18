@@ -57,9 +57,9 @@ jobs:
       with:
         files: ${{ env.ECS_TASK_DEFINITION }}
       env:
-        aws_fargate_execution_role_arn: ${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}
-        aws_fargate_image: ${{ secrets.AWS_FARGATE_IMAGE }}
-        aws_region: ${{ secrets.AWS_REGION }}
+        executionRoleArn: ${{ secrets.AWS_FARGATE_EXECUTION_ROLE_ARN }}
+        containerDefinitions[0].image: ${{ secrets.AWS_FARGATE_IMAGE }}
+        containerDefinitions[0].logConfiguration.options.awslogs-region: ${{ secrets.AWS_REGION }}
 
     - name: Show task definition
       run: |
