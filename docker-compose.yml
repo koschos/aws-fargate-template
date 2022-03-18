@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: 060746190874.dkr.ecr.eu-west-1.amazonaws.com/aws-fargate-template:a729f74ac49284d4af5c532aa5ee76bef04c80a2
+    ports:
+      - "80:80"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: tutorial
+        awslogs-region: eu-west-1
+        awslogs-stream-prefix: web

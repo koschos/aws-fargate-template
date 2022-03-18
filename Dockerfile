@@ -11,4 +11,7 @@ USER nobody
 WORKDIR /app
 COPY --from=builder /app .
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+
+EXPOSE 80
+
 CMD ["./app"]

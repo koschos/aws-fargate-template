@@ -1,0 +1,26 @@
+{
+  "family": "aws-fargate-template-family",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::060746190874:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "aws-fargate-template",
+      "image": "060746190874.dkr.ecr.eu-west-1.amazonaws.com/aws-fargate-template:latest",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": []
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512"
+}
